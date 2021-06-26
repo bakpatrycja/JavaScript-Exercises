@@ -198,32 +198,73 @@ function generateValuesFromPaths(object_of_paths,array_of_paths) {
 
 
 
-// 11 - WORK IN PROGRESS
-
 
 // 11. Please write compare function which compares 2 objects for equality.
 // example input { a: 'b', c: 'd' }, { c: 'd', a: 'b' }  /// output true
 // example input { a: 'c', c: 'a' }, { c: 'd', a: 'b', q: 's' }  /// output false
 
-// const first_object = { a: 'b', c: 'd' };
-// const second_object = { c: 'd', a: 'b' };
+const f_object = { a: 'b', c: 'd' };
+const s_object = { c: 'd', a: 'b' };
+
+//const f_object = { a: 'c', c: 'a' }; //negative path
+//const s_object = { c: 'd', a: 'b', q: 's' }; //negative path
+
+const isEqual = (f_obj, s_obj) => {
+  let answer = true;
+  const first_object = f_obj;
+  const second_object = s_obj;
 
 
-// const isEqual = (first_object, second_object) => {
-//     let answer = true;
-//     for (const key in first_object) {
-//       for (const key_2 in second_object) {
-//         if (key in second_object == true && key_2 in first_object == true) {
-//           answer = 10;
-//         } else {
-//           answer = false;
-//         }
-//       }
-//     }
-//   return answer
-// } 
+  const createArray = (object) => {
+    let arr = [];
+    for (const key in object) {
+      arr.push([key, object[key]]);
+    }
+    return arr
+  }
 
-// console.log(isEqual(first_object, second_object))
+  let first_array = createArray(first_object)
+  let second_array = createArray(second_object)
+
+  const sortedObj = (arr) => {
+    return arr.sort((a,b) => {
+      var textA = a.toString().toUpperCase();
+      var textB = b.toString().toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    })
+
+  }
+
+  let sorted_first_array = sortedObj(first_array)
+  let sorted_second_array = sortedObj(second_array)
+
+
+
+  const array_to_object = (arr) => {
+    let obj = {};
+    arr.forEach(([prop,key])=> {
+      return  obj[prop] = key
+    })
+    return obj
+  } 
+
+  const sorted_first_object = array_to_object(sorted_first_array)
+  const sorted_second_object = array_to_object(sorted_second_array)
+  
+  for (const key in sorted_first_object) {
+    for (const key_2 in sorted_second_object) {
+      if (key === key_2 && sorted_first_object[key] === sorted_second_object[key_2]) {
+        answer = true;
+      } else {
+        answer = false;
+      }
+    }
+  }
+  return answer
+} 
+
+//console.log(isEqual(f_object, s_object))
+
 
 
 
