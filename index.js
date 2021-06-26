@@ -135,6 +135,7 @@ let object_from_tuple = {};
 tuple_to_object.forEach(([prop,key])=> {
   return  object_from_tuple[prop] = key
 })
+
 // ANSWER
 //console.log(object_from_tuple)
 
