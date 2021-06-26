@@ -132,10 +132,9 @@ const createTuple = (object) => {
 const tuple_to_object = [['color', 'blue'], ['id', '22'], ['size', 'xl']];
 let object_from_tuple = {};
 
-tuple_to_object.reduce((accumulator, [first_value, second_value], index, array) => { 
-  return  object_from_tuple[first_value] = second_value
-}, object_from_tuple)
-
+tuple_to_object.forEach(([prop,key])=> {
+  return  object_from_tuple[prop] = key
+})
 // ANSWER
 //console.log(object_from_tuple)
 
@@ -196,6 +195,10 @@ function generateValuesFromPaths(object_of_paths,array_of_paths) {
 // ANSWER
 //generateValuesFromPaths(object_of_paths,array_of_paths)
 //console.log(answ)
+
+
+
+// 11 - WORK IN PROGRESS
 
 
 // 11. Please write compare function which compares 2 objects for equality.
