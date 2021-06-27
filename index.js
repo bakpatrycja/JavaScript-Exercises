@@ -27,12 +27,12 @@ const reverseString = (string) => {
 
 const box = ['P', 90, 30,'a',100, 't',200, 'r', 'y', 'c', 'j', 'a',1,2,3,4];
 
-/**
- * @name - filterOutNumbers
- * @description - function removes numbers from array and returns new array
- * @param {array} box - array to filter
- * @return {array} returns filtered array
- */
+// /**
+//  * @name - filterOutNumbers
+//  * @description - function removes numbers from array and returns new array
+//  * @param {array} box - array to filter
+//  * @return {array} returns filtered array
+//  */
 const filterOutNumbers = (box) => {
   return output = box.filter((item)=> {
     if (typeof item !== "number") {
@@ -48,22 +48,22 @@ const filterOutNumbers = (box) => {
 
 const variable = 1;
 
-/**
- * @name - hello
- * @description - function runs console log
- * @param {number} value - number to be displayes
- * @return {} function doesn't return value
- */
+// /**
+//  * @name - hello
+//  * @description - function runs console log
+//  * @param {number} value - number to be displayes
+//  * @return {} function doesn't return value
+//  */
 function hello (value) {
   console.log(value)
 }
 
-/**
- * @name - world
- * @description - function invokes hello() function
- * @param {} function doesn't take parameters
- * @return {} function doesn't return value
- */
+// /**
+//  * @name - world
+//  * @description - function invokes hello() function
+//  * @param {} function doesn't take parameters
+//  * @return {} function doesn't return value
+//  */
 function world () {
   const variable = 2;
   hello(variable);
@@ -110,13 +110,13 @@ const input_3 = ['b', 3, 4, 76, 'c'];
 const input_4 = ['a', 'b', 4, 76, 21, 'e'];
 
 
-/**
- * @name - getDuplicates
- * @description - finds all common elements of two arrays
- * @param {array} arr_1 - array to search duplicates
- * @param {array} arr_2 - array to search duplicates
- * @return {array} new array which contains duplicates
- */
+// /**
+//  * @name - getDuplicates
+//  * @description - finds all common elements of two arrays
+//  * @param {array} arr_1 - array to search duplicates
+//  * @param {array} arr_2 - array to search duplicates
+//  * @return {array} new array which contains duplicates
+//  */
 const getDuplicates =  (arr_1, arr_2) => {
   let duplicates = [];
   const merged_tables = input_3.concat(input_4);
@@ -143,13 +143,13 @@ const getDuplicates =  (arr_1, arr_2) => {
 const input_1 = ['b', 3, 4, 76, 'c', {}];
 const input_2 = ['a', 'b', 4, 76, 21, 'e'];
 
-/**
- * @name - getUniques
- * @description - finds all unique elements of two arrays
- * @param {array} input_1 - array to search uniques
- * @param {array} input_2 - array to search uniques
- * @return {array} function return array which contains unique values
- */
+// /**
+//  * @name - getUniques
+//  * @description - finds all unique elements of two arrays
+//  * @param {array} input_1 - array to search uniques
+//  * @param {array} input_2 - array to search uniques
+//  * @return {array} function return array which contains unique values
+//  */
 const getUniques = (input_1, input_2) => {
   let uniques = [];
   const merged_data = input_1.concat(input_2);
@@ -205,12 +205,12 @@ const createTuple = (object) => {
 
 const tuple_to_object = [['color', 'blue'], ['id', '22'], ['size', 'xl']];
 
-/**
- * @name - transformTupleToObject
- * @description - transforms a list of [key, value] tuples to object
- * @param {array} tuple_to_object - array to transform
- * @return {object} function returns transformed object
- */
+// /**
+//  * @name - transformTupleToObject
+//  * @description - transforms a list of [key, value] tuples to object
+//  * @param {array} tuple_to_object - array to transform
+//  * @return {object} function returns transformed object
+//  */
 const transformTupleToObject = (tuple_to_object) => {
   let object_from_tuple = {};
   tuple_to_object.forEach(([prop,key])=> {
@@ -232,13 +232,13 @@ const first_array = [1,2,3];
 const second_array = [4,5,6,7];
 
 
-/**
- * @name - createPairs
- * @description - takes two arrays of items and returns an array of tuples made from two input arrays at the same indexes
- * @param {array} first - array to search for pair
- * @param {array} second - array to search for pair
- * @return {array} function returns transformed array
- */
+// /**
+//  * @name - createPairs
+//  * @description - takes two arrays of items and returns an array of tuples made from two input arrays at the same indexes
+//  * @param {array} first - array to search for pair
+//  * @param {array} second - array to search for pair
+//  * @return {array} function returns transformed array
+//  */
 const createPairs = (first, second) => {
   let pairs = [];
   first.forEach((first_item, first_index, first_array) => {
@@ -269,13 +269,13 @@ const object_of_paths =  { a: { b: { c: { d: '23' } } } }
 
 let answ = '';
 
-/**
- * @name - generateValuesFromPaths
- * @description - takes a path(path is an array of keys) and object, then returns value at this path. If value at path doesn't exists, return undefined
- * @param {object} object_of_paths - object to search for values
- * @param {array} array_of_paths - keys of object
- * @return {} doesn't return value
- */
+// /**
+//  * @name - generateValuesFromPaths
+//  * @description - takes a path(path is an array of keys) and object, then returns value at this path. If value at path doesn't exists, return undefined
+//  * @param {object} object_of_paths - object to search for values
+//  * @param {array} array_of_paths - keys of object
+//  * @return {} doesn't return value
+//  */
 const generateValuesFromPaths = (object_of_paths,array_of_paths) => {
   Object.keys(object_of_paths).forEach((key, index)=>{
     if (object_of_paths[key] !== null && typeof object_of_paths[key] === 'object') {
@@ -308,13 +308,13 @@ const s_object = { c: 'd', a: 'b' };
 //const f_object = { a: 'c', c: 'a' }; //negative path
 //const s_object = { c: 'd', a: 'b', q: 's' }; //negative path
 
-/**
- * @name - isEqual
- * @description - compares 2 objects for equality.
- * @param {object} f_obj - object to compare
- * @param {object} s_obj - object to compare
- * @return {boolean} function returns true or false
- */
+// /**
+//  * @name - isEqual
+//  * @description - compares 2 objects for equality.
+//  * @param {object} f_obj - object to compare
+//  * @param {object} s_obj - object to compare
+//  * @return {boolean} function returns true or false
+//  */
 const isEqual = (f_obj, s_obj) => {
   let answer = true;
   const first_object = f_obj;
@@ -378,13 +378,13 @@ const keys = ['color', 'size'];
 const object_values = { color: 'Blue', id: '22', size: 'xl' }
 
 
-/**
- * @name - getValuesFromKeys
- * @description - takes a list of keys and an object, then returns this object, just without keys from the list
- * @param {array} keys - object to compare
- * @param {object} object - object to compare
- * @return {object} returns object without keys from array "keys"
- */
+// /**
+//  * @name - getValuesFromKeys
+//  * @description - takes a list of keys and an object, then returns this object, just without keys from the list
+//  * @param {array} keys - object to compare
+//  * @param {object} object - object to compare
+//  * @return {object} returns object without keys from array "keys"
+//  */
 const getValuesFromKeys = (keys, object) => {
   let singleValue = {}
   Object.keys(object).forEach(key=>{
