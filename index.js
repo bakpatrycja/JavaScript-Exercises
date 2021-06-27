@@ -52,7 +52,6 @@ let flatten_array = [];
 function flattenArray(arrayToFlatten) {
   arrayToFlatten.forEach((item, index, source) => {
     if(Array.isArray(item) && item != undefined ) {
-      console.log(item)
       flattenArray(item)
     } else {
       flatten_array.push(item)
