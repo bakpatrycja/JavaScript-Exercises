@@ -51,7 +51,8 @@ let flatten_array = [];
 
 function flattenArray(arrayToFlatten) {
   arrayToFlatten.forEach((item, index, source) => {
-    if(Array.isArray(item) ) {
+    if(Array.isArray(item) && item != undefined ) {
+      console.log(item)
       flattenArray(item)
     } else {
       flatten_array.push(item)
@@ -60,7 +61,8 @@ function flattenArray(arrayToFlatten) {
 }
 
 //ANSWER
-//console.log(flattenArray(array_to_flatten))
+//flattenArray(array_to_flatten)
+//console.log(flatten_array)
 
 // 5. Please write a function that finds all common elements of two arrays(only primitive types as array elements, order doesn't matter)
 // example inputs ['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e']
@@ -135,9 +137,9 @@ let object_from_tuple = {};
 tuple_to_object.forEach(([prop,key])=> {
   return  object_from_tuple[prop] = key
 })
-
 // ANSWER
 //console.log(object_from_tuple)
+
 
 
 // 9. Please write a function that takes two arrays of items and returns an array of tuples made from two input arrays at the same indexes. Excessive items should be dropped.
@@ -171,32 +173,29 @@ const createPairs = (first, second) => {
 
 
 const array_of_paths = ['a', 'b', 'c', 'd' ];
-const object_of_paths =  { a: { b: { c: { d: '23' } } } };
+const object_of_paths =  { a: { b: { c: { d: '23' } } } }
 // negative path const object_of_paths =  { a: { b: { c: { d: { e: '23'} } } } };
-let answ = []
-
+let answ = '';
 function generateValuesFromPaths(object_of_paths,array_of_paths) {
   Object.keys(object_of_paths).forEach((key, index)=>{
-      if (object_of_paths[key] !== null && typeof object_of_paths[key] === 'object') {
-        generateValuesFromPaths(object_of_paths[key], array_of_paths);
+    if (object_of_paths[key] !== null && typeof object_of_paths[key] === 'object') {
+      generateValuesFromPaths(object_of_paths[key], array_of_paths);
+    }
+    if (typeof object_of_paths[key] !== 'object' && object_of_paths[key] !== null) {
+      if (array_of_paths.indexOf(key) != -1 ) {
+        console.log(`Found element: ${object_of_paths[key]}`)
+        answ += `${object_of_paths[key]} `
+      } else {
+        console.log(`Element at path doesn't exist: ${key}`)
+        answ = undefined
       }
-      if (typeof object_of_paths[key] == 'string' && object_of_paths[key] !== undefined) {
-        if (array_of_paths.indexOf(key) != -1 ) {
-          console.log(`Found element: ${object_of_paths[key]}`)
-          answ.push(object_of_paths[key])
-        } else {
-          console.log(`Element at path doesn't exist: ${key}`)
-          answ.push(undefined)
-        }
-      }
+    }
   })
 }
 
-// ANSWER
+//ANSWER
 //generateValuesFromPaths(object_of_paths,array_of_paths)
 //console.log(answ)
-
-
 
 
 // 11. Please write compare function which compares 2 objects for equality.
@@ -238,8 +237,6 @@ const isEqual = (f_obj, s_obj) => {
   let sorted_first_array = sortedObj(first_array)
   let sorted_second_array = sortedObj(second_array)
 
-
-
   const array_to_object = (arr) => {
     let obj = {};
     arr.forEach(([prop,key])=> {
@@ -250,7 +247,7 @@ const isEqual = (f_obj, s_obj) => {
 
   const sorted_first_object = array_to_object(sorted_first_array)
   const sorted_second_object = array_to_object(sorted_second_array)
-  
+
   for (const key in sorted_first_object) {
     for (const key_2 in sorted_second_object) {
       if (key === key_2 && sorted_first_object[key] === sorted_second_object[key_2]) {
@@ -264,8 +261,6 @@ const isEqual = (f_obj, s_obj) => {
 } 
 
 //console.log(isEqual(f_object, s_object))
-
-
 
 
 // 12. Please write a function which takes a list of keys and an object, then returns this object, just without keys from the list
